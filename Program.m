@@ -1,10 +1,8 @@
-clear; close all; clc;
-
 % read the training data
 data = load('examples.txt');
 
 % initialize Matrices and Variables
-X = data(:, 1);     % featue matrix
+X = data(:, 1);     % feature matrix
 y = data(:, 2);     % results matrix
 m = length(y);      % number of training examples
 theta = zeros(2, 1);     % initial weights
@@ -29,7 +27,11 @@ legend('Training data', 'Linear regression');
 hold off;
 
 % plotting the cost function
-plot(1: iterations, J_history, '-b');
+figure;
+plot(1: iterations, Js, '-c');
+title('The cost function');
+xlabel('Iterations needed for Gradient Descent');
+ylabel('Cost function History');
 
 % Predicting Profits
 fprintf('Prediction for 35000:\t%f\n', ([1, 3.5] * theta) * 10000);
